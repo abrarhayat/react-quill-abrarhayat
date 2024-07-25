@@ -16,6 +16,54 @@ import Quill, {
   Sources,
 } from 'quill';
 
+// Register custom formats
+const BlockEmbed = Quill.import('blots/block/embed');
+
+class AudioBlot extends BlockEmbed {
+    static create(value: any) {
+        let node = super.create();
+        node.setAttribute('controls', 'controls');
+        node.setAttribute('src', value);
+        return node;
+    }
+
+    static value(node : HTMLElement) {
+        return node.getAttribute('src');
+    }
+
+    html() {
+        const { src } = this.value();
+        return `<audio controls src="${src}"></audio>`;
+    }
+}
+
+AudioBlot.blotName = 'audio';
+AudioBlot.tagName = 'audio';
+
+class VideoBlot extends BlockEmbed {
+    static create(value: any) {
+        let node = super.create();
+        node.setAttribute('controls', 'controls');
+        node.setAttribute('src', value);
+        return node;
+    }
+
+    static value(node: HTMLElement) {
+        return node.getAttribute('src');
+    }
+
+    html() {
+        const { src } = this.value();
+        return `<video controls src="${src}"></video>`;
+    }
+}
+
+VideoBlot.blotName = 'video';
+VideoBlot.tagName = 'video';
+
+Quill.register(AudioBlot);
+Quill.register(VideoBlot);
+
 // Merged namespace hack to export types along with default object
 // See: https://github.com/Microsoft/TypeScript/issues/2719
 namespace ReactQuill {
