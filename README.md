@@ -10,32 +10,33 @@ See a [live demo] or [Codepen](http://codepen.io/alexkrolick/pen/xgyOXQ/left?edi
 [react]: https://facebook.github.io/react/
 [live demo]: https://zenoamaro.github.io/react-quill/
 
-- [Quick Start](#quick-start)
-  - [With webpack or create-react-app](#with-webpack-or-create-react-app)
-  - [With the browser bundle](#with-the-browser-bundle)
-- [Usage](#usage)
-  - [Controlled mode caveats](#controlled-mode-caveats)
-  - [Using Deltas](#using-deltas)
-  - [Themes](#themes)
-  - [Custom Toolbar](#custom-toolbar)
-    - [Default Toolbar Elements](#default-toolbar-elements)
-    - [HTML Toolbar](#html-toolbar)
-  - [Custom Formats](#custom-formats)
-  - [Custom editing area](#custom-editing-area)
-- [Upgrading to ReactQuill v2](#upgrading-to-reactquill-v2)
-  - [Deprecated props](#deprecated-props)
-  - [ReactQuill Mixin](#reactquill-mixin)
-  - [Toolbar component](#toolbar-component)
-- [API reference](#api-reference)
-  - [Exports](#exports)
-  - [Props](#props)
-  - [Methods](#methods)
-  - [The unprivileged editor](#the-unprivileged-editor)
-- [Building and testing](#building-and-testing)
-- [Browser support](#browser-support)
-- [Changelog](#changelog)
-- [Contributors](#contributors)
-- [License](#license)
+- [](#)
+  - [Quick Start](#quick-start)
+    - [With webpack or create-react-app](#with-webpack-or-create-react-app)
+    - [With the browser bundle](#with-the-browser-bundle)
+  - [Usage](#usage)
+    - [Controlled mode caveats](#controlled-mode-caveats)
+    - [Using Deltas](#using-deltas)
+    - [Themes](#themes)
+    - [Custom Toolbar](#custom-toolbar)
+      - [Default Toolbar Elements](#default-toolbar-elements)
+      - [HTML Toolbar](#html-toolbar)
+    - [Custom Formats](#custom-formats)
+    - [Custom editing area](#custom-editing-area)
+  - [Upgrading to ReactQuill v2](#upgrading-to-reactquill-v2)
+    - [Deprecated props](#deprecated-props)
+    - [ReactQuill Mixin](#reactquill-mixin)
+    - [Toolbar component](#toolbar-component)
+  - [API reference](#api-reference)
+    - [Exports](#exports)
+    - [Props](#props)
+    - [Methods](#methods)
+    - [The unprivileged editor](#the-unprivileged-editor)
+  - [Building and testing](#building-and-testing)
+  - [Browser support](#browser-support)
+  - [Changelog](#changelog)
+  - [Contributors](#contributors)
+  - [License](#license)
 
 ---
 
@@ -66,7 +67,8 @@ npm install react-quill --save
 ```jsx
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
+import 'react-quill-abrarhayat/dist/quill.snow.css';
+import 'react-quill-abrarhayat/dist/audio.css';
 
 function MyComponent() {
   const [value, setValue] = useState('');
