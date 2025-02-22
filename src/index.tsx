@@ -41,7 +41,7 @@ AudioBlot.blotName = 'audio';
 AudioBlot.tagName = 'audio';
 
 class IframeVideoBlot extends BlockEmbed {
-  static blotName = 'video'; // keep same blot name
+  static blotName = 'video';
   static tagName = 'iframe';
 
   static create(value: any) {
