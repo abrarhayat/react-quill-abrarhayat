@@ -1,6 +1,6 @@
 {
   "name": "react-quill-abrarhayat",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "The Quill rich-text editor as a React component. This is a fork of https://github.com/zenoamaro/react-quill.",
   "author": "zenoamaro <zenoamaro@gmail.com>",
   "license": "MIT",

@@ -40,29 +40,40 @@ class AudioBlot extends BlockEmbed {
 AudioBlot.blotName = 'audio';
 AudioBlot.tagName = 'audio';
 
-class VideoBlot extends BlockEmbed {
-    static create(value: any) {
-        let node = super.create();
-        node.setAttribute('controls', 'controls');
-        node.setAttribute('src', value);
-        return node;
-    }
+class IframeVideoBlot extends BlockEmbed {
+  static blotName = 'video'; // keep same blot name
+  static tagName = 'iframe';
 
-    static value(node: HTMLElement) {
-        return node.getAttribute('src');
-    }
+  static create(value: any) {
+    const node = super.create();
+    const embedUrl = typeof value === 'string' ? value.trim() : value;
 
-    html() {
-        const { src } = this.value();
-        return `<video controls src="${src}"></video>`;
-    }
+    node.setAttribute('src', embedUrl);
+    node.setAttribute('frameborder', '0');
+    node.setAttribute('allowfullscreen', 'true');
+    node.setAttribute('loading', 'lazy');
+    node.className = 'ql-video';
+    node.style.width = '100%';
+    node.style.height = '360px';
+
+    // Optional: allow list of features
+    // node.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+
+    return node;
+  }
+
+  static value(node: HTMLElement) {
+    return node.getAttribute('src');
+  }
+
+  html() {
+    const src = IframeVideoBlot.value(this.domNode as HTMLElement);
+    return `<iframe class="ql-video" src="${src}" frameborder="0" allowfullscreen loading="lazy" style="width:100%;height:360px"></iframe>`;
+  }
 }
 
-VideoBlot.blotName = 'video';
-VideoBlot.tagName = 'video';
-
 Quill.register(AudioBlot);
-Quill.register(VideoBlot);
+Quill.register(IframeVideoBlot, true);
 
 // Merged namespace hack to export types along with default object
 // See: https://github.com/Microsoft/TypeScript/issues/2719
